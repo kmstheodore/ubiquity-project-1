@@ -1,0 +1,7 @@
+<h1>Name</h1>
+<h2><%=@reminder.name%><h2>
+<h1>Description</h1>
+<%=@reminder.description%>
+<%= link_to "Destroy", reminder_path(@reminder), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"}%>

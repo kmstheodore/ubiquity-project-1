@@ -1,0 +1,31 @@
+<div class="container-fluid">
+
+  <div class="reminder-cont">
+    <% @reminders.each do |reminder| %>
+      <div class="reminder">
+        <div class="name"> <p><%= reminder.name %></p></div>
+        <div class="desc"><p><%= reminder.description %></p></div>
+
+
+        <div class="delete">
+         <%= link_to reminder_path(reminder), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
+          <i class="bi bi-check-square" style="font-size: 5vh;"></i>
+        <% end %>
+        </div>
+      </div>
+      <% end %>
+  </div>
+
+
+  <div class="control">
+    <div class="new-page">
+    <%= link_to new_reminder_path do %>
+          <i class="bi bi-plus-square" style="font-size: 5vh;"></i></i>
+        <% end %>
+    </div>
+    <div class="new-page">
+      <i class="bi bi-gear" style="font-size: 5vh;"></i>
+
+    </div>
+  </div>
+</div>
