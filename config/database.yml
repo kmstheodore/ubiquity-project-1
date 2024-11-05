@@ -17,8 +17,7 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
-  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } % >
 
 development:
   <<: *default
@@ -80,6 +79,4 @@ test:
 #
 production:
   <<: *default
-  database: ubiquity_theo_project_production
-  username: ubiquity_theo_project
-  password: <%= ENV["UBIQUITY_THEO_PROJECT_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
