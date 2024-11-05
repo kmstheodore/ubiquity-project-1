@@ -97,7 +97,8 @@ Rails.application.configure do
   # Enable DNS rebinding protection and other `Host` header attacks.
   config.hosts = [
     "ubiquityproject.co.uk",     # Allow requests from ubiquityproject.co.uk
-    "www.ubiquityproject.co.uk"  # Allow requests from www.ubiquityproject.co.uk
+    "www.ubiquityproject.co.uk",  # Allow requests from www.ubiquityproject.co.uk
+    "ubiquity-1290d25b2a39.herokuapp.com" # Allow requests from ubiquity-1290d25b2a39.herokuapp.com
   ]
   # Skip DNS rebinding protection for the default health check endpoint.
   config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
