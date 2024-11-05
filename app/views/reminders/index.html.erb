@@ -1,31 +1,63 @@
+<%= stylesheet_link_tag "index", "data-turbo-track": "reload" %>
 <div class="container-fluid">
-
+  <div id="left-cont">
+  </div>
+  <div id="mid-cont">
+  <div id="menu">
+      Menu
+    </div>
   <div class="reminder-cont">
+
     <% @reminders.each do |reminder| %>
+      <%if reminder.complete == false%>
       <div class="reminder">
         <div class="name"> <p><%= reminder.name %></p></div>
         <div class="desc"><p><%= reminder.description %></p></div>
 
 
         <div class="delete">
-         <%= link_to reminder_path(reminder), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } do %>
-          <i class="bi bi-check-square" style="font-size: 5vh;"></i>
-        <% end %>
+          <%= form_with url: toggle_complete_path(reminder), method: :patch, local: true do |form| %>
+              <%= form.hidden_field :complete, value: !reminder.complete %>
+              <%= form.submit "Toggle Complete" %>
+            <% end %>
+         <!-- <# link_to "x", reminder_path(reminder), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }  -->
+
         </div>
       </div>
+      <%end%>
       <% end %>
   </div>
-
+  </div>
 
   <div class="control">
-    <div class="new-page">
+    <div id="x-1">
+    <i class="bi bi-app" style="font-size: 5vh;"></i>
+    </div>
+    <div id="x-2">
+      <i class="bi bi-gear" style="font-size: 5vh;"></i>
+    </div>
+    <div id="x-3">
+    <i class="bi bi-app" style="font-size: 5vh;"></i>
+    </div>
+    <div id="x-4">
+    <i class="bi bi-pencil-square" style="font-size: 5.5vh;"></i>
+    </div>
+    <div id="x-5">
     <%= link_to new_reminder_path do %>
           <i class="bi bi-plus-square" style="font-size: 5vh;"></i></i>
         <% end %>
     </div>
-    <div class="new-page">
-      <i class="bi bi-gear" style="font-size: 5vh;"></i>
-
+    <div id="x-6">
+    <i class="bi bi-app" style="font-size: 5vh;"></i>
+    </div>
+    <div id="x-7">
+    <i class="bi bi-app" style="font-size: 5vh;"></i>
+    </div>
+    <div id="x-8">
+    <i class="bi bi-app" style="font-size: 5vh;"></i>
+    </div>
+    <div id="x-9">
+    <i class="bi bi-app" style="font-size: 5vh;"></i>
     </div>
   </div>
 </div>

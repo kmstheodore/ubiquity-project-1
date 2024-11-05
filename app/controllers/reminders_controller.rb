@@ -37,9 +37,18 @@ class RemindersController < ApplicationController
 
     redirect_to root_path, status: :see_other
   end
+
+  def toggle_complete
+    @reminder = Reminder.find(params[:id])
+    @reminder.update(complete: !@reminder.complete, counter: @reminder.counter + 1)
+    redirect_to root_path
+  end
+
+
+
   private
 
   def reminder_params
-    params.require(:reminder).permit(:name, :description)
+    params.require(:reminder).permit(:name, :strike, :description, :complete, :counter, :active, :repeat)
   end
 end

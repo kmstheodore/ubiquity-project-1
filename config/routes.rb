@@ -14,6 +14,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   root "reminders#index"
   get "landing" => "pages#landing"
-
+  patch "reminders/:id/toggle_complete", to: "reminders#toggle_complete", as: :toggle_complete
   resources :reminders
 end
