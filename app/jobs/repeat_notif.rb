@@ -1,4 +1,4 @@
-class RepeatNotifJob < ApplicationJob
+class RepeatNotif < ApplicationJob
   queue_as :default
 
   def perform(*args)
