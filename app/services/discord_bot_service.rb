@@ -13,6 +13,11 @@ class DiscordBotService
     reminder = Reminder.find(reminder_id)
     user = reminder.user
     discord_id = user.discord_id
-    @bot.user(discord_id).pm("It's time to complete: #{reminder.name}")
+    current_time = Time.now
+    until current_time >= reminder.strike
+      current_time = Time.now
+      @bot.user(discord_id).pm("It's time to complete: #{reminder.name}")
+      sleep 5.seconds
+    end
   end
 end
