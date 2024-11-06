@@ -13,5 +13,5 @@ preload_app!
 
 plugin :tmp_restart
 
-# Ensure the correct port is used
-rackup DefaultRackup
+# Remove or correct the line that references DefaultRackup
+# rackup DefaultRackup
