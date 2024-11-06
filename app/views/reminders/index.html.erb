@@ -9,10 +9,12 @@
   <div class="reminder-cont">
 
     <% @reminders.each do |reminder| %>
+      <% time = reminder.strike.strftime("%H:%M")%>
       <%if reminder.complete == false%>
+
       <div class="reminder">
-        <div class="name"> <p><%= reminder.name %></p></div>
-        <div class="desc"><p><%= reminder.description %></p></div>
+        <div class="name"> <p><%= time %></p></div>
+        <div class="desc"><p><%= reminder.name %></p></div>
 
 
         <div class="delete">
