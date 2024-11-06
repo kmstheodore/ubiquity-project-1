@@ -357,7 +357,7 @@ DEPENDENCIES
   rails (~> 7.2.2)
   rubocop-rails-omakase
   selenium-webdriver
-  sidekiq (~> 7.3)
+  sidekiq
   sprockets-rails
   stimulus-rails
   turbo-rails
