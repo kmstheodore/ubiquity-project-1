@@ -4,7 +4,8 @@ class DiscordBotService
   end
 
   def notify_new_reminder(reminder)
-    channel_id = ENV["DISCORD_CHANNEL_ID"]
-    @bot.send_message(channel_id, "Hello! A new reminder has been created: #{reminder.name}")
+    user = reminder.user
+    discord_id = user.discord_id
+    @bot.user(discord_id).pm("Hello! A new reminder has been created: #{reminder.name}")
   end
 end
