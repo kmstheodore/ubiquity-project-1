@@ -8,4 +8,10 @@ class DiscordBotService
     discord_id = user.discord_id
     @bot.user(discord_id).pm("Hello! A new reminder has been created: #{reminder.name}")
   end
+
+  def notifier(reminder)
+    user = reminder.user
+    discord_id = user.discord_id
+    @bot.user(discord_id).pm("Hello! A new reminder has been created: #{reminder.name}")
+  end
 end

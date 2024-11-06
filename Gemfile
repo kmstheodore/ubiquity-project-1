@@ -58,3 +58,5 @@ end
 
 gem "devise"
 gem "discordrb"
+
+gem "sidekiq"
