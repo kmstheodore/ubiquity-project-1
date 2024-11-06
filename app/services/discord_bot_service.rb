@@ -9,15 +9,10 @@ class DiscordBotService
     @bot.user(discord_id).pm("Hello! A new reminder has been created: #{reminder.name}")
   end
 
-  def notifier(reminder)
+  def notifier(reminder_id)
+    reminder = Reminder.find(reminder_id)
     user = reminder.user
     discord_id = user.discord_id
-    discord_user = @bot.user(discord_id)
-
-    if discord_user
-      discord_user.pm("Hello! A new reminder has been created: #{reminder.name}")
-    else
-      Rails.logger.error "Discord user with ID #{discord_id} not found"
-    end
+    @bot.user(discord_id).pm("It's time to complete: #{reminder.name}")
   end
 end
