@@ -1,8 +1,8 @@
 class RepeatNotif < ApplicationJob
   queue_as :default
 
-  def perform(*args)
-    # Do something later
-    Rails.logger.info "Test job executed with args: #{args.inspect}"
+  def perform(reminder_id)
+    reminder = Reminder.find(reminder_id)
+    DiscordBotService.new.notifier(reminder)
   end
 end
