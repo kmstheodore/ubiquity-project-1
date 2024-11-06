@@ -1,19 +1,42 @@
-
-
 .container-fluid {
   background: linear-gradient(45deg, #d2001a, #7462ff);
   background-size: 300% 300%;
   display: flex;
   height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  justify-content: space-between;
 }
 
 #left-cont {
-  width: 20%;
+  width: 15%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#top-left {
+  margin-top: 15vh;
+}
+
+.time-box {
+
+  height: 6vh;
+  margin-bottom: 4vh;
+  border-style: solid;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  padding-left: 0.5vh;
+  padding-right: 0.5vh;
+
 }
 #mid-cont {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: 70%;
 }
 .reminder-cont {
   display: flex;
@@ -43,32 +66,22 @@
   border-style: solid;
   border-radius: 10px;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
-}
-
-.interface-cont {
-  min-height: 24vh;
-  margin-top: 2vh;
-  border-style: solid;
-  border-radius: 10px;
-}
-.interface {
-  display: flex;
-  min-height: 8vh;
-  margin-bottom: 2vh;;
+  background: linear-gradient(45deg, #d2001a, #7462ff);
+  background-size: 300% 300%;
 }
 
 .name {
   display: flex;
   align-items: center;
   justify-content:center;
-  width: 33%;
+  width: 28%;
 }
 
 .desc {
-  width: 33%;
+  width: 62%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content:flex-start;
 
 }
 p {
@@ -78,11 +91,11 @@ p {
   display: flex;
   align-items: center;
   justify-content:center;
-  width: 33%;
+  width: 10%;
 }
 
 .control {
-  width: 20%;
+  width: 15%;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -93,44 +106,44 @@ p {
 
 #x-1 {
   margin-top: 2vh;
-  margin-bottom: 2vh;
-  min-height: 8vh;
+  margin-bottom: 3vh;
+  min-height: 6vh;
 }
 #x-2 {
   margin-top: 2vh;
-  min-height: 8vh;
+  min-height: 6vh;
 }
 
 #x-3 {
   margin-top: 2vh;
-  min-height: 8vh;
+  min-height: 6vh;
 }
 #x-4 {
   margin-top: 2vh;
-  min-height: 8vh;
+  min-height: 6vh;
 }
 #x-5 {
   margin-top: 2vh;
-  min-height: 8vh;
+  min-height: 6vh;
 }
 #x-6 {
   margin-top: 2vh;
-  min-height: 8vh;
+  min-height: 6vh;
 }
 
 #x-7 {
   margin-top: 2vh;
-  min-height: 8vh;
+  min-height: 6vh;
 }
 
 #x-8 {
   margin-top: 2vh;
-  min-height: 8vh;
+  min-height: 6vh;
 }
 
 #x-9 {
   margin-top: 2vh;
-  min-height: 8vh;
+  min-height: 6vh;
 }
 #reminder_name {
   width: 80%;
@@ -143,4 +156,20 @@ p {
 
 .delete > input {
   width: 50%;
+}
+.control-pad {
+  border-style: solid;
+  min-height: 26vh;
+  margin-top: 2vh;
+  display: flex;
+  flex-direction: column;
+}
+#row-1 {
+  display: flex;
+}
+#row-2 {
+  display: flex;
+}
+#row-3 {
+  display: flex;
 }

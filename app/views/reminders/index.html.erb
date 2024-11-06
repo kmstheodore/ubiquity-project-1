@@ -1,6 +1,16 @@
 <%= stylesheet_link_tag "index", "data-turbo-track": "reload" %>
 <div class="container-fluid">
   <div id="left-cont">
+    <div id="top-left">
+    </div>
+    <% @reminders.each do |reminder| %>
+      <% time = reminder.strike.strftime("%H:%M")%>
+      <%if reminder.complete == false%>
+      <div class="time-box">
+        <p><%= time %></p>
+      </div>
+      <%end%>
+      <%end%>
   </div>
   <div id="mid-cont">
   <div id="menu">
@@ -9,11 +19,11 @@
   <div class="reminder-cont">
 
     <% @reminders.each do |reminder| %>
-      <% time = reminder.strike.strftime("%H:%M")%>
+
       <%if reminder.complete == false%>
 
       <div class="reminder">
-        <div class="name"> <p><%= time %></p></div>
+        <div class="name"> <p></p></div>
         <div class="desc"><p><%= reminder.name %></p></div>
 
 
@@ -32,35 +42,35 @@
   </div>
 
   <div class="control">
-    <div id="x-1">
+    <div class="right-bar" id="x-1">
     <i class="bi bi-app" style="font-size: 5vh;"></i>
     </div>
-    <div id="x-2">
+    <div class="right-bar" id="x-2">
       <i class="bi bi-gear" style="font-size: 5vh;"></i>
     </div>
-    <div id="x-3">
+    <div class="right-bar" id="x-3">
     <i class="bi bi-app" style="font-size: 5vh;"></i>
     </div>
-    <div id="x-4">
+    <div class="right-bar" id="x-4">
     <i class="bi bi-pencil-square" style="font-size: 5.5vh;"></i>
     </div>
-    <div id="x-5">
+    <div class="right-bar" id="x-5">
     <%= link_to new_reminder_path do %>
           <i class="bi bi-plus-square" style="font-size: 5vh;"></i></i>
         <% end %>
     </div>
-    <div id="x-6">
+    <div class="right-bar" id="x-6">
     <i class="bi bi-app" style="font-size: 5vh;"></i>
     </div>
-    <div id="x-7">
+    <div class="right-bar" id="x-7">
     <i class="bi bi-app" style="font-size: 5vh;"></i>
     </div>
-    <div id="x-8">
+    <div class="right-bar" id="x-8">
     <%= link_to new_reminder_path do %>
           <i class="bi bi-plus-square" style="font-size: 5vh;"></i></i>
         <% end %>
     </div>
-    <div id="x-9">
+    <div class="right-bar" id="x-9">
       <%= link_to edit_user_registration_path do %>
       <i class="bi bi-gear" style="font-size: 5vh;"></i>
       <% end %>

@@ -1,63 +1,68 @@
 <%= stylesheet_link_tag "new_reminder", "data-turbo-track": "reload" %>
 <div class="container-fluid">
   <div id="left-cont">
+    <div id="top-left">
+    </div>
+    <div class="time-box">
+        <p id="time-target"></p>
+      </div>
   </div>
   <div id="mid-cont">
+    <input id="name-input" type="text" style="position: absolute; opacity: 0; height: 0;">
   <div id="menu">
       Menu
     </div>
   <div class="reminder-cont">
-
-      <div class="reminder">
-        <div class="name"></div>
-        <div class="desc"></div>
-        <div class="delete"></div>
+    <div class="reminder" id="name-target">
+        <div class="name">
+          <p id="name-target"></p>
+        </div>
       </div>
-      <div class="reminder">
+      <div class="reminder" style="visibility: hidden">
         <%= form_with model: @reminder do |form| %>
-        <div class="name"><%=form.text_field :strike, style: "width: 50%; display: none;"%></div>
-        <div class="desc"><%=form.text_field :name, style: "width: 50%; display: none;"%></div>
+        <div class="name"><%=form.text_field :strike, style: " display: none;"%></div>
+        <div class="desc"><%=form.text_field :name, style: " display: none;"%></div>
 
 
-        <div class="delete"><%=form.text_field :description, style: "width: 50%; display: none;" %><%=form.submit style: "display: none;" %>
+        <div class="delete"><%=form.text_field :description, style: " display: none;" %><%=form.submit style: "display: none;" %>
 
 
         </div>
         <%end%>
       </div>
-      <div class="reminder">
-        <div class="name"></div>
-        <div class="desc"></div>
-        <div class="delete"></div>
-      </div>
-      <div class="reminder">
-        <div class="name"></div>
-        <div class="desc"></div>
-        <div class="delete"></div>
-      </div>
-      <div class="interface-cont">
-      <div class="interface">
-        <div class="name"><i class="bi bi-7-square" style="font-size: 5vh;"></i></div>
-        <div class="desc"><i class="bi bi-8-square" style="font-size: 5vh;"></i></div>
-        <div class="delete"><i class="bi bi-9-square" style="font-size: 5vh;"></i></div>
-      </div>
-      <div class="interface">
-        <div class="name"><i class="bi bi-4-square" style="font-size: 5vh;"></i></div>
-        <div class="desc"><i class="bi bi-5-square" style="font-size: 5vh;"></i></div>
-        <div class="delete"><i class="bi bi-6-square" style="font-size: 5vh;"></i></div>
-      </div>
-      <div class="interface">
-        <div class="name"><i class="bi bi-1-square" style="font-size: 5vh;"></i></div>
-        <div class="desc"><i class="bi bi-2-square" style="font-size: 5vh;"></i></div>
-        <div class="delete"><i class="bi bi-3-square" style="font-size: 5vh;"></i></div>
-      </div>
-      <div class="interface">
-        <div class="name"></div>
-        <div class="desc"><i class="bi bi-0-square" style="font-size: 5vh;"></i></div>
-        <div class="delete"></div>
-      </div>
-    </div>
 
+
+      <div class=reminder style="visibility: hidden" >
+        <div class="name"></div>
+        <div class="desc"></div>
+        <div class="delete"></div>
+      </div>
+      <div class=reminder style="visibility: hidden" >
+        <div class="name"></div>
+        <div class="desc"></div>
+        <div class="delete"></div>
+      </div>
+      <div class="control-pad" id="control-pad-time" style="display:block;">
+        <div id="row-1">
+          <i class="bi bi-7-square" style="font-size: 5vh;"></i>
+          <i class="bi bi-8-square" style="font-size: 5vh;"></i>
+          <i class="bi bi-9-square" style="font-size: 5vh;"></i>
+        </div>
+        <div id="row-2">
+          <i class="bi bi-4-square" style="font-size: 5vh;"></i>
+          <i class="bi bi-5-square" style="font-size: 5vh;"></i>
+          <i class="bi bi-6-square" style="font-size: 5vh;"></i>
+        </div>
+        <div id="row-3">
+          <i class="bi bi-1-square" style="font-size: 5vh;"></i>
+          <i class="bi bi-2-square" style="font-size: 5vh;"></i>
+          <i class="bi bi-3-square" style="font-size: 5vh;"></i>
+        </div>
+      </div>
+      <div class="control-pad" id="control-pad-name" style="display: none">
+      </div>
+      <div class="control-pad" id="control-pad-platforms" style="display: none">
+      </div>
 
 
 
@@ -86,13 +91,42 @@
     <i class="bi bi-clock-fill" style="font-size: 5vh;"></i>
     </div>
     <div id="x-7">
-    <i class="bi bi-app" style="font-size: 5vh;"></i>
+    <i class="bi bi-alphabet-uppercase"style="font-size: 5vh;"></i>
     </div>
     <div id="x-8">
-    <i class="bi bi-app" style="font-size: 5vh;"></i>
+    <i class="bi bi-bell-fill" style="font-size: 5vh;"></i>
     </div>
     <div id="x-9">
     <i class="bi bi-app" style="font-size: 5vh;"></i>
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+  // Get the element with the class 'bi bi-alphabet-uppercase'
+  const alphabetButton = document.querySelector(".bi.bi-alphabet-uppercase");
+
+  // Get the element with the id 'control-pad-time'
+  const controlPadTime = document.getElementById("control-pad-time");
+
+  // Add a click event listener to the alphabet button
+  if (alphabetButton && controlPadTime) {
+    alphabetButton.addEventListener("click", function() {
+      // Change the style of 'control-pad-time' to 'display: none'
+      controlPadTime.style.display = "none";
+
+      // Get the hidden input field
+      const input = document.getElementById('name-input');
+
+      // Focus on input to open keyboard
+      input.focus();
+
+      // Listen for input events to update the target paragraph in real time
+      input.addEventListener('input', () => {
+        const target = document.getElementById('name-target');
+        target.textContent = input.value; // Update target with input's value
+      });
+    });
+  }
+});
+</script>
