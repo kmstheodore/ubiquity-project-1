@@ -32,3 +32,13 @@ plugin :tmp_restart
 # Specify the PID file. Defaults to tmp/pids/server.pid in development.
 # In other environments, only set the PID file if requested.
 pidfile ENV["PIDFILE"] if ENV["PIDFILE"]
+
+workers Integer(ENV["WEB_CONCURRENCY"] || 2)
+threads_count = Integer(ENV["RAILS_MAX_THREADS"] || 5)
+threads threads_count, threads_count
+
+preload_app!
+
+rackup      DefaultRackup if defined?(DefaultRackup)
+port        ENV["PORT"]     || 3000
+environment ENV["RACK_ENV"] || "development"
