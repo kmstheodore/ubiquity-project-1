@@ -20,7 +20,7 @@
         <div class="delete">
           <%= form_with url: toggle_complete_path(reminder), method: :patch, local: true do |form| %>
               <%= form.hidden_field :complete, value: !reminder.complete %>
-              <%= form.submit "Toggle Complete" %>
+              <%= form.submit "", style: "width: 50%;" %>
             <% end %>
          <!-- <# link_to "x", reminder_path(reminder), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }  -->
 
@@ -56,10 +56,14 @@
     <i class="bi bi-app" style="font-size: 5vh;"></i>
     </div>
     <div id="x-8">
-    <i class="bi bi-app" style="font-size: 5vh;"></i>
+    <%= link_to new_reminder_path do %>
+          <i class="bi bi-plus-square" style="font-size: 5vh;"></i></i>
+        <% end %>
     </div>
     <div id="x-9">
-    <i class="bi bi-app" style="font-size: 5vh;"></i>
+      <%= link_to edit_user_registration_path do %>
+      <i class="bi bi-gear" style="font-size: 5vh;"></i>
+      <% end %>
     </div>
   </div>
 </div>

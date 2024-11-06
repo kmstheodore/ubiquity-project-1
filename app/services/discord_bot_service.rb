@@ -17,7 +17,7 @@ class DiscordBotService
     until current_time >= reminder.strike
       current_time = Time.now
       @bot.user(discord_id).pm("It's time to complete: #{reminder.name}")
-      sleep 5.seconds
+      sleep 20.seconds
     end
   end
 end
