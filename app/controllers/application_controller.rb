@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def authenticate_user!
     unless user_signed_in?
-      redirect_to landing_path
+      redirect_to request_demo_path
     end
   end
 

@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   root "reminders#index"
-  get "landing" => "pages#landing"
+  get "request_demo" => "pages#request_demo"
   patch "reminders/:id/toggle_complete", to: "reminders#toggle_complete", as: :toggle_complete
   resources :reminders
 end
