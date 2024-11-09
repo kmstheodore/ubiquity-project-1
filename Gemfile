@@ -60,3 +60,4 @@ gem "devise"
 gem "discordrb"
 
 gem "sidekiq"
+gem "web-push"
