@@ -3,6 +3,7 @@
   <div id="left-cont">
     <div id="top-left">
     </div>
+    <div id="l-times">
     <% @reminders.each do |reminder| %>
       <% time = reminder.strike.strftime("%H:%M")%>
       <%if reminder.complete == false%>
@@ -11,6 +12,7 @@
       </div>
       <%end%>
       <%end%>
+    </div>
   </div>
   <div id="mid-cont">
   <div id="menu">
@@ -23,8 +25,8 @@
       <%if reminder.complete == false%>
 
       <div class="reminder">
-        <div class="name"> <p></p></div>
-        <div class="desc"><p><%= reminder.name %></p></div>
+        <div class="name"><%= reminder.name %></div>
+
 
 
         <div class="delete">
@@ -42,38 +44,37 @@
   </div>
 
   <div class="control">
+    <div id="top-right">
+
+    </div>
     <div class="right-bar" id="x-1">
-    <i class="bi bi-app" style="font-size: 5vh;"></i>
+
     </div>
     <div class="right-bar" id="x-2">
-      <i class="bi bi-gear" style="font-size: 5vh;"></i>
+
     </div>
     <div class="right-bar" id="x-3">
-    <i class="bi bi-app" style="font-size: 5vh;"></i>
+
     </div>
     <div class="right-bar" id="x-4">
-    <i class="bi bi-pencil-square" style="font-size: 5.5vh;"></i>
+
     </div>
     <div class="right-bar" id="x-5">
-    <%= link_to new_reminder_path do %>
-          <i class="bi bi-plus-square" style="font-size: 5vh;"></i></i>
-        <% end %>
+
     </div>
     <div class="right-bar" id="x-6">
-    <i class="bi bi-app" style="font-size: 5vh;"></i>
+      <i class="bi bi-person-circle"></i>
     </div>
     <div class="right-bar" id="x-7">
-    <i class="bi bi-app" style="font-size: 5vh;"></i>
+
+      <i class="bi bi-vector-pen"></i>
     </div>
     <div class="right-bar" id="x-8">
     <%= link_to new_reminder_path do %>
-          <i class="bi bi-plus-square" style="font-size: 5vh;"></i></i>
+          <i class="bi bi-plus-circle-fill"></i>
         <% end %>
+
     </div>
-    <div class="right-bar" id="x-9">
-      <%= link_to edit_user_registration_path do %>
-      <i class="bi bi-gear" style="font-size: 5vh;"></i>
-      <% end %>
-    </div>
+
   </div>
 </div>
