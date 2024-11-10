@@ -384,6 +384,7 @@ DEPENDENCIES
   debug
   devise
   discordrb
+  faraday
   fcm
   importmap-rails
   jbuilder

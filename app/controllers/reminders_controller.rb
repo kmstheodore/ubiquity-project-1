@@ -55,7 +55,7 @@ class RemindersController < ApplicationController
     Rails.logger.info("FCM token: #{fcm_token.inspect}")
     return unless fcm_token
 
-    fcm = FCM.new(ENV['FCM_SERVER_KEY'])
+    fcm = FCM.new(ENV["FCM_SERVER_KEY"])
     options = {
       notification: {
         title: "New Reminder Created",
@@ -65,7 +65,7 @@ class RemindersController < ApplicationController
       }
     }
 
-    response = fcm.send([fcm_token], options)
+    response = fcm.send([ fcm_token ], options)
     Rails.logger.info("FCM response: #{response[:status_code]} - #{response[:body]}")
     if response[:status_code] != 200
       Rails.logger.error("FCM error: #{response[:body]}")
