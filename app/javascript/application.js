@@ -7,7 +7,7 @@ import { getMessaging, getToken, onMessage } from "firebase/messaging";
 // Configure your Firebase app with your Firebase project details
 const firebaseConfig = {
   apiKey: "AIzaSyBuEc82Ac0EULB5XIiuolF7J671jeecSXc", // Replace with your API key
-  authDomain: "ubiquity-project-app.firebaseapp.com", // Replace with your auth domain
+  authDomain: "ubiquityproject.co.uk", // Replace with your auth domain
   projectId: "ubiquity-project-app", // Replace with your project ID
   storageBucket: "ubiquity-project-app.firebasestorage.app", // Replace with your storage bucket
   messagingSenderId: "65866574535", // Replace with your messaging sender ID

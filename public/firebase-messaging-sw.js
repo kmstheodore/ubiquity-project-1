@@ -3,7 +3,7 @@ importScripts('https://www.gstatic.com/firebasejs/11.0.1/firebase-messaging.js')
 
 const firebaseConfig = {
   apiKey: "AIzaSyBuEc82Ac0EULB5XIiuolF7J671jeecSXc",
-  authDomain: "ubiquity-project-app.firebaseapp.com",
+  authDomain: "ubiquityproject.co.uk",
   projectId: "ubiquity-project-app",
   storageBucket: "ubiquity-project-app.firebasestorage.app",
   messagingSenderId: "65866574535",
