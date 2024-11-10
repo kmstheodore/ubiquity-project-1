@@ -20,11 +20,11 @@
       </div>
       <div class="reminder" style="visibility: hidden">
         <%= form_with model: @reminder do |form| %>
-        <div class="name"><%=form.text_field :strike, style: " display: none;"%></div>
-        <div class="desc"><%=form.text_field :name, style: " display: none;"%></div>
+        <div class="name"><%=form.text_field :strike%></div>
+        <div class="desc"><%=form.text_field :name%></div>
 
 
-        <div class="delete"><%=form.text_field :description, style: " display: none;" %><%=form.submit style: "display: none;" %>
+        <div class="delete"><%=form.text_field :description%><%=form.submit %>
 
 
         </div>
