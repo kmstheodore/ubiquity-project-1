@@ -10,9 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2024_11_10_123308) do
+ActiveRecord::Schema[7.2].define(version: 2024_11_10_144156) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "fcm_tokens", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "token"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_fcm_tokens_on_user_id"
+  end
 
   create_table "reminders", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -42,5 +50,6 @@ ActiveRecord::Schema[7.2].define(version: 2024_11_10_123308) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "fcm_tokens", "users"
   add_foreign_key "reminders", "users"
 end

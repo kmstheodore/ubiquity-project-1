@@ -1,6 +1,8 @@
+// Import Firebase SDKs
 importScripts('https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/11.0.1/firebase-messaging.js');
 
+// Initialize Firebase with your project config
 const firebaseConfig = {
   apiKey: "AIzaSyBuEc82Ac0EULB5XIiuolF7J671jeecSXc",
   authDomain: "ubiquityproject.co.uk",
@@ -11,19 +13,22 @@ const firebaseConfig = {
   measurementId: "G-KYM0K5G00G"
 };
 
+// Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-// Get Firebase messaging instance
+// Get Firebase Messaging instance
 const messaging = firebase.messaging();
 
-// Handle background notifications
+// Handle background messages (when app is closed or in the background)
 messaging.onBackgroundMessage(function(payload) {
   console.log("Received background message ", payload);
+
   const notificationTitle = "New Reminder";
   const notificationOptions = {
     body: payload.notification.body,
-    icon: "/firebase-logo.png"  // Replace with your icon if needed
+    icon: "/firebase-logo.png"  // Replace with your own icon if needed
   };
 
+  // Show notification
   self.registration.showNotification(notificationTitle, notificationOptions);
 });
