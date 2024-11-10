@@ -1,6 +1,9 @@
 // Import Firebase SDKs
-importScripts('https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/11.0.1/firebase-messaging.js');
+import { initializeApp } from "firebase/app";
+
+const app = initializeApp(firebaseConfig);
+
+// Initialize Firebase Cloud Messaging
 
 // Initialize Firebase with your project config
 const firebaseConfig = {
