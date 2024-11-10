@@ -23,10 +23,10 @@ const messaging = firebase.messaging();
 messaging.onBackgroundMessage(function(payload) {
   console.log("Received background message ", payload);
 
-  const notificationTitle = "New Reminder";
+  const notificationTitle = payload.notification.title;
   const notificationOptions = {
     body: payload.notification.body,
-    icon: "/firebase-logo.png"  // Replace with your own icon if needed
+    icon: payload.notification.icon || "/firebase-logo.png" // Replace with your own icon if needed
   };
 
   // Show notification
