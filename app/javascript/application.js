@@ -45,16 +45,25 @@ Notification.requestPermission()
     console.error("Error getting notification permission or token:", error);
   });
 
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/firebase-messaging-sw.js')
+    .then((registration) => {
+      console.log("Service Worker registered with scope:", registration.scope);
+    })
+    .catch((error) => {
+      console.error("Service Worker registration failed:", error);
+    });
+}
+
 // Function to send the token to your Rails server
 function sendTokenToServer(token) {
-  // Send the token to your Rails server using a POST request
-  fetch('/store-fcm-token', {
+  fetch('/save_fcm_token', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'X-CSRF-Token': document.querySelector('[name="csrf-token"]').content // Include CSRF token for security
+      'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
     },
-    body: JSON.stringify({ token: token })
+    body: JSON.stringify({ fcm_token: token })
   })
   .then(response => {
     if (response.ok) {
