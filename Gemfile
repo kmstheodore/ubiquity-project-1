@@ -61,3 +61,4 @@ gem "discordrb"
 
 gem "sidekiq"
 gem "web-push"
+gem "fcm"

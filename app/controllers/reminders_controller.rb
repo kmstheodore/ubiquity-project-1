@@ -50,6 +50,28 @@ class RemindersController < ApplicationController
 
   private
 
+  def send_push_notification(reminder)
+    fcm_token = current_user.fcm_token
+    Rails.logger.info("FCM token: #{fcm_token.inspect}")
+    return unless fcm_token
+
+    fcm = FCM.new(ENV['FCM_SERVER_KEY'])
+    options = {
+      notification: {
+        title: "New Reminder Created",
+        body: "Reminder: #{reminder.name}",
+        icon: "/path/to/icon.png",
+        click_action: reminder_url(reminder)
+      }
+    }
+
+    response = fcm.send([fcm_token], options)
+    Rails.logger.info("FCM response: #{response[:status_code]} - #{response[:body]}")
+    if response[:status_code] != 200
+      Rails.logger.error("FCM error: #{response[:body]}")
+    end
+  end
+
   def reminder_params
     params.require(:reminder).permit(:name, :strike, :description, :complete, :counter, :active, :repeat)
   end
