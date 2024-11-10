@@ -15,8 +15,8 @@ class RemindersController < ApplicationController
   def create
     @reminder = current_user.reminders.build(reminder_params)
     if @reminder.save
-      DiscordBotService.new.notify_new_reminder(@reminder)
-      CheckerJob.perform_at(@reminder.strike - 60.seconds, @reminder.id)
+      # DiscordBotService.new.notify_new_reminder(@reminder)
+      # CheckerJob.perform_at(@reminder.strike - 60.seconds, @reminder.id)
       redirect_to root_path
     end
   end
